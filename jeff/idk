@@ -1,0 +1,7 @@
+my-sql
+docker network create some-network
+docker run --network some-network --name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
+docker run --network some-network -it --rm mysql:latest mysql -hsome-mysql -uroot -p
+
+phpmyadmin
+docker run --name myadmin -d --network some-network -p 8080:80 -e PMA_HOST=mysqlserver phpmyadmin/phpmyadmin
