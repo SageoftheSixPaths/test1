@@ -19,7 +19,7 @@ class UserDatabase{
     public function logIn(){
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $statement = $this->pdo->prepare("select * from user where username=$username and password='$password'");
+        $statement = $this->pdo->prepare("select * from user where username='$username' and password='$password'");
         $statement->execute();
         return $statement->fetch(PDO::FETCH_OBJ);
     }
