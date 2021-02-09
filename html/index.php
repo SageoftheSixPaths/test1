@@ -1,13 +1,7 @@
 <?php
-switch(trim($_SERVER['REQUEST_URI'], '/')){
-    case '':
-        require 'app/views/index.view.php';
-        break;
-    case 'hero':
-        require 'app/controllers/heroes.controller.php';
-        if($_POST){
-            Heroes::store('heroes', ['name' => $_POST['heroName'], 'class' => $_POST['heroClass'], 'rank' => $_POST['heroRank']]);
-        }
-        Heroes::getHeroes();
-        break;
-}
+require 'Router.php';
+require 'controllers/PagesController.php';
+require 'controllers/AdminController.php';
+$bookID = explode('/', $_SERVER['REQUEST_URI']);
+$router = new Router($bookID[count($bookID) - 1]);
+$router->redirect(trim($_SERVER['REQUEST_URI'], '/'), $_SERVER['REQUEST_METHOD']);
