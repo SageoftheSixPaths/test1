@@ -2,7 +2,7 @@
 class Database{
     private $pdo;
     public function __construct(){
-        $this->pdo = new PDO('mysql:host=php_database_1;dbname=database', 'root', 'password');
+        $this->pdo = new PDO('mysql:host=database;dbname=database', 'root', 'password');
     }
 
     public function getAllBooks(){
