@@ -1,13 +1,10 @@
 <?php
-require './book-database.php';
-require './user-database.php';
 class PagesController{
     public function index(){
-        $bookDatabase = new BookDatabase();
-        $books = $bookDatabase->getAllBooks();
-        $userDatabase = new UserDatabase();
-        $user = $userDatabase->getUser();
-        if($user->username === 'user' && $user->password === 'password'){
+        $database = new Database();
+        $books = $database->getAllBooks();
+        $user = $database->getUser();
+        if($user->username === 'test' && $user->password === 'test'){
             return require 'views/index.view.php';
         }else{
             echo 'DO NOT ENTER';
@@ -16,9 +13,15 @@ class PagesController{
 
     public function book(){
         $bookID = explode('/', $_SERVER['REQUEST_URI']);
-        $bookDatabase = new BookDatabase();
-        $book = $bookDatabase->getOneBookInformation($bookID[count($bookID) - 1]);
+        $database = new Database();
+        $book = $database->getOneBookInformation($bookID[count($bookID) - 1]);
         return require 'views/book.view.php';
+    }
+
+    public function checkout(){
+        $database = new Database();
+        $database->checkout();
+        return require 'views/checkout.view.php';
     }
     
     public function add(){
@@ -26,8 +29,8 @@ class PagesController{
     }
 
     public function delete(){
-        $bookDatabase = new BookDatabase();
-        $books = $bookDatabase->getAllBooks();
+        $database = new Database();
+        $books = $database->getAllBooks();
         return require 'views/delete.view.php';
     }
 

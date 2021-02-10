@@ -24,6 +24,18 @@ INSERT INTO `books` (`id`, `title`, `author`, `genre`, `checkedOut`) VALUES
 (13,	'another test',	'another test',	'another test',	1),
 (14,	'another test',	'another test',	'another test',	1),
 (15,	'idk',	'idk',	'idk',	1),
-(16,	'idk',	'idk',	'idk',	0);
+(16,	'idk',	'idk',	'idk',	1);
 
--- 2021-02-09 04:34:26
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_ci NOT NULL,
+  `email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_ci NOT NULL,
+  `password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_ci;
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
+(1,	'test',	'test@gmail.com',	'test');
+
+-- 2021-02-10 02:20:05

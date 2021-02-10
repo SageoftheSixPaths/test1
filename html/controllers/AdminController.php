@@ -1,31 +1,31 @@
 <?php
 class AdminController{
     public function checkout(){
-        $bookDatabase = new BookDatabase();
-        $bookDatabase->checkout();
+        $database = new Database();
+        $database->checkout();
         return require 'views/checkout.view.php';
     }
 
     public function add(){
-        $bookDatabase = new BookDatabase();
-        $bookDatabase->insertBook();
+        $database = new Database();
+        $database->insertBook();
         header('Location: /book/add');
     }
 
     public function delete(){
-        $bookDatabase = new BookDatabase();
-        $bookDatabase->deleteBook();
+        $database = new Database();
+        $database->deleteBook();
         header('Location: /book/delete');
     }
 
     public function signUp(){
-        $userDatabase = new UserDatabase();
-        $userDatabase->signUp();
+        $database = new Database();
+        $database->signUp();
         header('Location: /signUp');
     }
 
     public function logIn(){
-        $userDatabase = new UserDatabase();
-        var_dump($userDatabase->logIn());
+        $database = new Database();
+        var_dump($database->logIn());
     }
 }

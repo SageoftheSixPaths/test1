@@ -1,4 +1,5 @@
 <?php
+require './database.php';
 require 'Router.php';
 require 'controllers/PagesController.php';
 require 'controllers/AdminController.php';
